@@ -17,4 +17,10 @@ class Worker extends Model
     public function departmentWorkers() {
         return  $this->hasMany('App\DepartmentWorker', 'department_id', 'id');
     }
+
+    public function getAllSalary() {
+        return DepartmentWorker::where('worker_id', $this->id)->sum('salary');
+    }
+
+
 }

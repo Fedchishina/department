@@ -16,16 +16,20 @@
         <tbody>
         @foreach($workers as $worker)
             <tr>
-                <td>{{ $worker->firsrName }}</td>
-                <td>{{ $worker->lastName }}</td>
-                <td>{{ $worker->middleName }}</td>
+                <td>{{ $worker->first_name }}</td>
+                <td>{{ $worker->last_name }}</td>
+                <td>{{ $worker->middle_name }}</td>
                 <td>@if($worker->sex == '1') мужчина @elseif($worker->sex == '0') женщина @endif</td>
-                <td>{{ $worker->middleName }}</td>
+                <td>{{ $worker->getAllSalary() }}</td>
                 <td>
-                    <a class="btn btn-default modal-edit-department" href="#modal-container-edit-department" role="button" class="btn" data-toggle="modal" data-id="{{ $department->id }}" data-name="{{ $department->name }}">
+                    @foreach($worker->departmentWorkers as $departmentWorkers)
+                    @endforeach
+                </td>
+                <td>
+                    <a class="btn btn-default modal-edit-department" href="#modal-container-edit-department" role="button" class="btn" data-toggle="modal" data-worker="{{ $worker }}">
                         Изменить
                     </a>
-                    <a class="btn btn-default modal-del-department" href="#modal-container-del-department" role="button" class="btn" data-toggle="modal" data-id="{{ $department->id }}" data-name="{{ $department->name }}">
+                    <a class="btn btn-default modal-del-department" href="#modal-container-del-department" role="button" class="btn" data-toggle="modal" data-worker="{{ $worker }}">
                         Удалить
                     </a>
                 </td>

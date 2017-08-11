@@ -12,4 +12,12 @@ class DepartmentWorker extends Model
         'worker_id',
         'salary'
     ];
+
+    public function department() {
+        return  $this->hasOne('App\Department', 'department_id', 'id');
+    }
+
+    public function worker() {
+        return  $this->hasOne('App\Worker', 'worker_id', 'id');
+    }
 }
