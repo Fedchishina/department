@@ -14,10 +14,10 @@ class DepartmentWorker extends Model
     ];
 
     public function department() {
-        return  $this->hasOne('App\Department', 'department_id', 'id');
+        return  $this->hasOne('App\Department', 'id', 'department_id');
     }
 
     public function worker() {
-        return  $this->hasOne('App\Worker', 'worker_id', 'id');
+        return  $this->hasOne('App\Worker', 'id', 'worker_id');
     }
 }

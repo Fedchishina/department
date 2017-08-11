@@ -21,10 +21,7 @@
                 <td>{{ $worker->middle_name }}</td>
                 <td>@if($worker->sex == '1') мужчина @elseif($worker->sex == '0') женщина @endif</td>
                 <td>{{ $worker->getAllSalary() }}</td>
-                <td>
-                    @foreach($worker->departmentWorkers as $departmentWorkers)
-                    @endforeach
-                </td>
+                <td>{{ $worker->getAllDepartmentsInString() }}</td>
                 <td>
                     <a class="btn btn-default modal-edit-department" href="#modal-container-edit-department" role="button" class="btn" data-toggle="modal" data-worker="{{ $worker }}">
                         Изменить
